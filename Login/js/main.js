@@ -11,12 +11,18 @@ ckeckUser()
     }
 })
 function ckeckUser() {
-    for (let i = 0; i < user.length; i++) {
-    if (signUpMail.value.trim()==user[i].mail  && signUpPassword.value.trim() ==user[i].pass) {
-        let y=user[i].name;
-        localStorage.setItem("username",y);
-        location.href="../home/index.html";
-        break;
-        }
+   if(user != null)
+    {
+        for (let i = 0; i < user.length; i++) {
+            if (signUpMail.value.trim()==user[i].mail  && signUpPassword.value.trim() ==user[i].pass) {
+                let y=user[i].name;
+                localStorage.setItem("username",y);
+                location.href="/index.html";
+                break;
+                }
+            }
+    }else
+    {
+          message.innerHTML=`<p class="text-center text-danger">You Must Sign Up First</p>`
     }
 }
